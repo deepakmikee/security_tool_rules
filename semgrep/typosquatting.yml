@@ -1,0 +1,11 @@
+# This rule check for any typo squatting issues in Github actions on the repos used from 'actions' org
+rules:
+  - id: check-github-actions-typos
+    pattern-regex: \buses:\s*ac(?!tions/)\w*
+    message: Usage of specific wrong action detected. Please review.
+    severity: ERROR
+    languages:
+      - yaml
+    path:
+      - "**/*.yml"
+      - "**/*.yaml"
